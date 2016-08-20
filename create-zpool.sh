@@ -1,6 +1,6 @@
 #!/bin/bash
 
-zpool create -o ashift=12 \
+zpool create -f -o ashift=12 \
       -O atime=off -O canmount=off -O compression=lz4 -O normalization=formD \
       -O mountpoint=/ -R /mnt \
       -d -o feature@async_destroy=enabled \
@@ -13,4 +13,4 @@ zpool create -o ashift=12 \
          -o feature@enabled_txg=enabled \
          -o feature@embedded_data=enabled \
          -o feature@large_blocks=enabled \
-      rpool mirror /dev/disk/by-id/scsi-SATA_disk1-part1
+      rpool mirror /dev/disk/by-id/ata-WDC_WD20EFRX-68EUZN0_WD-WCC4M0CJD8TR-part1 /dev/disk/by-id/ata-WDC_WD20EFRX-68EUZN0_WD-WCC4M4YVT4VR-part1
